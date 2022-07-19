@@ -38,6 +38,7 @@ hr{
 li{
     font-family: Montserrat-light;
     font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .title{
@@ -100,7 +101,7 @@ em{
 
 a{
     text-decoration: none;
-
+    color: red;
 }
 
 a:hover{
@@ -114,4 +115,9 @@ dd{
 .movies p{
     font-family: Montserrat;
     font-weight: bold;
+}
+
+footer{
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
