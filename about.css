@@ -1,0 +1,117 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("assets/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Montserrat-light;
+    src: url("assets/Montserrat-Thin.ttf");
+}
+
+body{
+    padding : 0;
+    margin : 0;
+    font-family: Montserrat;
+    font-weight: lighter;
+    background-color: #FFFFFF;
+}
+
+.container {
+    background-color: #efefef;
+    margin-left: 2em;
+    margin-right: 2em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+hr{
+    border-top: 1px solid #bbb;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+li{
+    font-family: Montserrat-light;
+    font-weight: bold;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.courses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favourite_movies{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moods{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.funfacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moods .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.moods .container .mood{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.moods .container .mood img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+em{
+    font-family: Montserrat;
+    font-style: normal;
+}
+
+
+a{
+    text-decoration: none;
+
+}
+
+a:hover{
+    cursor :pointer;
+}
+
+dd{
+    font-style: italic;
+}
+
+.movies p{
+    font-family: Montserrat;
+    font-weight: bold;
+}
