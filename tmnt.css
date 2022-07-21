@@ -1,3 +1,131 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("assets/Montserrat-VariableFont_wght.ttf");
+}
+
 body{
-   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin : 0px;
+    background-image: url("images/background.png");
+    font-family: Montserrat;
+}
+
+h1{
+    font-weight: bold;
+    text-shadow: 3px 3px #999999;
+}
+
+.banner{
+    width: 100%;
+}
+
+.banner img{
+    width: 100%;
+    height: 90px;
+}
+
+.largercontainer{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    border: gray 2px solid;
+    box-shadow: inset;
+    border-radius: 10px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-self: center;
+    
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.left .top{
+    width: 100%;
+    background-image: url("images/rbg.png");
+}
+
+.left .top .score{
+    display: flex;
+    flex-direction: row;
+}
+
+.left .top .score p{
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+}
+
+
+.left .bottom{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+}
+
+.right{
+    width: 40%;
+    height: auto;
+    background-color: #A2B964;
+
+}
+
+.right dl{
+    padding-left: 10px;
+}
+
+.right dt{
+    margin-top: 10px;
+}
+
+.right dl dt{
+    font-weight: bold;
+    
+}
+
+.comments{
+    columns: 2;
+    width: 95%;
+}
+
+.comment .comment_actual{
+    padding: 8px;
+    border: 2px gray solid;
+    border-radius: 10px;
+    background-color: #E8DC9B;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.commenter{
+    display: flex;
+}
+
+.right .logo img{
+    width: 100%;
+}
+
+.pagercontainer{
+    width: 100%;
+    background-color: #A2B964;
+    display: flex;
+    justify-content: center;
+}
+
+.validation{
+    align-self: flex-end;
+}
+
+.validation img{
+    opacity: 50%;
 }
