@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grades.css" type="text/css">
+    <title>Grades</title>
+</head>
+<body>
+    
+    <div class="left">
+        <h2>Welcome to MIU Grades Checking system</h2>
+        <p>Start by filling out the form on the right</p>
+    </div>
+    <div class="right">
+        <form action="http://mumstudents.org/params.php">
+            <div class="textinput">
+                <p>Please fill out your information here</p>
+                <input type="text" name="studentName" id="name" placeholder="Student id">
+                <input type="text" name="studentId" id="id" placeholder="Student name">
+            </div>
+            <p>Please select your entry</p>
+            <div class="radios">    
+                <input type="radio" id="fall" name="entry" value="fall">
+                <label for="fall">Fall</label><br>
+                <input type="radio" id="spring" name="entry" value="spring">
+                <label for="spring">Spring</label><br>
+            </div>
+            <p>Please select the assignment you want to see</p>
+            <div class="assignments">
+                <select name="assignment" id="assignment">
+                    <option value="lab1">Lab excercise 1</option>
+                    <option value="lab2">Lab excercise 2</option>
+                    <option value="lab3">Lab excercise 3</option>
+                    <option value="lab4">Lab excercise 4</option>
+                  </select>
+            </div>
+            <div class="checks">
+                <input required type="checkbox" id="cert" name="certification" value="Confirm">
+                <label for="cert"> I hereby confirm that all the information<br> provided here is correct to the best of my knowledge</label>    
+            </div>
+            <div class="submit">
+                <input type="submit" value="Check my Grade">  
+            </div>
+        </form>
+    </div>
+</body>
+</html>

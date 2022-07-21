@@ -1,0 +1,104 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("assets/Montserrat-VariableFont_wght.ttf");
+}
+
+body{
+    display: flex;
+    flex-direction : row;
+    margin: 0;
+    font-family: Montserrat;
+}
+
+.left{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    background-color:aquamarine;
+    color: gray;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+}
+
+.right p{
+    font-size: small;
+    font-weight: bold;
+    color: grey;
+}
+
+.right .textinput{
+    margin-bottom: 20px;
+    padding-right: 15px;
+}
+
+.right .textinput input{
+    width: 45%;
+    height: 2em;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px grey solid;
+}
+
+::placeholder{
+    padding-left: 10px;
+    font-family: Montserrat;
+}
+
+.right .radios{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.right .radios label{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.right .checks{
+    margin-bottom: 20px;
+}
+
+.right .assignments{
+    margin-bottom: 20px;
+}
+
+.right .checks label{
+    font-size: small;
+}
+
+select{
+    height: 2.5em;
+    width: 95%;
+    padding-right: 30px;
+    border: 1px grey solid;
+    border-radius: 5px;
+    color: grey;
+    font-family: Montserrat;
+}
+
+.right .submit input{
+    background-color: aqua;
+    height: 2.5em;
+    border: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 50px;
+    color: darkslategray;
+    
+}
+
+
