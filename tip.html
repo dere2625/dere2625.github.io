@@ -7,6 +7,15 @@ function calcTip() {
     let subtotal = parseInt(document.getElementById("subtotal").value);
     let tip = parseInt((document.getElementById("tip").value/100) *subtotal);
     let total = subtotal+tip;
+
+    if(isNaN(subtotal) || subtotal <= 0){
+        alert("Invalid total amount")
+    }
+
+    if(isNaN(tip) || tip>100 || tip <= 0){
+        alert("Invalid tip amount");
+        return;
+    }
     var element =  document.getElementById("total");
     element.innerHTML = '$'+total;
    
