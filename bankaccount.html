@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account</title>
+    <link rel="stylesheet" href="bankaccount.css" type="text/css">
+    <script src="bankaccount.js"></script>
+</head>
+<body onload="parseSavedData()">
+    <label for="accname">Account Name</label>
+    <input type="text" name="accname" id="accountname">
+    <label for="depoist">Deposit</label>
+    <input type="text" name="deposit" id="deposit">
+    <input type="button" value="Create New Account" onclick="createAccount()">
+    <textarea name="display" id="display" cols="30" rows="10"></textarea>
+    <input type="button" value="Deposit" onclick="redirectDeposit()">
+    <input type="button" value="Withdraw" onclick="redirectWithdraw()">
+</body>
+</html>
