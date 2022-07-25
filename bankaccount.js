@@ -154,7 +154,7 @@ function deposit(){
     }
     var account = Account.accountsList[selectedIndex - 1];
     var amount = parseFloat(document.getElementById('amount').value);
-    if(isNaN(amount) || amount >= 0){
+    if(isNaN(amount) || amount <= 0){
         alert('please enter a valid deposit amount');
         return;
     }
