@@ -138,7 +138,6 @@ function debit(){
         alert('Insufficient amount in account');
         return;
     }
-
     account.debitAccount(amount);
     console.log(account.getBalance());
     account.writeToStorage(Account.accountsList);
