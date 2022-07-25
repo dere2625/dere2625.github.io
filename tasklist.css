@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-self: center;
+    align-self: center;
+    border: 2px blue solid;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-left: 4px;
+    align-content: center;
+    justify-self: end;
+    align-self: flex-end;
+}
+

@@ -20,41 +20,58 @@
     <div class="form">
         <form action="">
             <div class="name">
-                <label for="name">Name :</label>
-                <input type="text" name="name" id="name" placeholder="Name">
+                <label for="name" class="label">Name :</label>
+                <div class="content">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                </div>
+                
             </div>
             <div class="sex">
-                <label for="sex">Geneder :</label>
-                <label for="male">Male</label><br>
-                <input type="radio" id="male" name="sex" value="Male">
-                <label for="female">Female</label><br>
-                <input type="radio" id="male" name="sex" value="Female">
+                <label for="sex" class="label">Geneder :</label>
+                <div class="content">
+                    <input type="radio" id="male" name="sex" value="Male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="male" name="sex" value="Female">
+                    <label for="female">Female</label><br>
+                    
+                </div>
+                
             </div>
             <div class="age">
-                <label for="age">Age :</label>
-                <input type="text" name="age" id="age">
+                <label for="age" class="label">Age :</label>
+                <div class="content">
+                    <input type="text" name="age" id="age">
+                </div>
+                
             </div>
             <div class="personality">
-                <label for="personality">Personality type :</label>
-                <input type="text" name="personality" id="personality">
-                <a href="#">(Don't know your type?)</a>
+                <label for="personality" class="label">Personality type :</label>
+                <div class="content">
+                    <input type="text" name="personality" id="personality">
+                    <a href="#">(Don't know your type?)</a>
+                </div>
+                
             </div>
             <div class="favos">
-                <label for="os">Favorite OS :</label>
-                <select name="os" id="os">
-                    <option value="mac">MacOS</option>
-                    <option value="win">Windows</option>
-                    <option value="linux">Linux</option>
-                </select>
+                <label for="os" class="label">Favorite OS :</label>
+                <div class="content">
+                    <select name="os" id="os">
+                        <option value="mac">MacOS</option>
+                        <option value="win">Windows</option>
+                        <option value="linux">Linux</option>
+                    </select>
+                </div>
             </div>
 
             <div class="lookingfor">
-                <label for="lookingage">Seeking Age :</label>
-                <input type="text" name="min" id="min">
-                <p>To</p>
-                <input type="text" name="max" id="max">
+                <label for="lookingage" class="label">Seeking Age :</label>
+                <div class="content">
+                    <input type="text" name="min" id="min">
+                    <p>To</p>
+                    <input type="text" name="max" id="max">
+                </div>
             </div>
-            <input type="submit" value="Submit">
+            <input class="btn" type="submit" value="Sign Up">
             
         </form>
     </div>

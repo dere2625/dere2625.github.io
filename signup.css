@@ -38,47 +38,70 @@ body{
 }
 
 .form{
-    background-color: aquamarine;
+    background-color: #c7b0f6;
     justify-self: center;
     align-self: center;
     display: flex;
     flex-direction: row; 
-     
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .form .name{
     display: flex;
     flex-direction: row;
-    columns: 2;
+    
+    width: 100%;
 }
 
 .form .sex{
     display: flex;
     flex-direction: row;
-    columns: 2;
+    
 }
 
 .form .age{
     display: flex;
     flex-direction: row;
-    columns: 2;
+   
 }
 
 .form .personality{
     display: flex;
     flex-direction: row;
-    columns: 2;
+
 }
 
 .form .favos{
     display: flex;
     flex-direction: row;
-    columns: 2;
+
 }
 
 .form .lookingfor{
     display: flex;
     flex-direction: row;
-    columns: 2;
+
+}
+
+
+.label{
+    width: 30%;
+}
+
+.content{
+    width: 70%;
+}
+
+a{
+    color: rgb(250, 90, 117);
+}
+
+.btn{
+    background-color: rgb(250, 90, 117);
+    border: 0px black solid;
+    border-radius: 5px;
+    width: 5.5em;
+    height: 2em;
 }
 
