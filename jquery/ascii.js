@@ -3,67 +3,63 @@
 var currentFrame = 0;
 var defaultSpeed = 250;
 var turboSpeed = 150;
-var selectedAnimation = '';
+var selectedAnimation = "";
 var interval;
 
-function startAnimation(){
-    stopAnimation();
-    var animationType = document.getElementById('animation');
-    var turbo = document.getElementById('speed').checked;
-    var speed = 0;
-    if(turbo){
-        speed = turboSpeed;
-    }
-    else{
-        speed = defaultSpeed;
-    }
-    currentFrame = 0;
-    selectedAnimation = animationType.options[animationType.selectedIndex].text;
-    document.getElementById('start').disabled = true;
-    document.getElementById('stop').disabled = false;
-    interval = setInterval(animate,speed);
-}
-
-function animate(){
-    var displayArea = document.getElementById('animarea');
-    const animSource = ANIMATIONS[selectedAnimation].split('=====\n');
-    console.log(animSource.length);
-    if(currentFrame < animSource.length){
-        displayArea.innerHTML = animSource[currentFrame++];
-    }
-    if(currentFrame === animSource.length){
+$(document).ready(function(){
+    $("#start").click(function(){
+        var speed = 0;
+        if($("#speed").is(":checked")){
+            speed = turboSpeed;
+        }
+        else{
+            speed = defaultSpeed;
+        }
         currentFrame = 0;
-    }
-    
-}
+        selectedAnimation = $("#animation").val();
+        $("#start").prop("disabled",true);
+        $("#stop").prop("disabled",false);
+        interval = setInterval(animate,speed);
+    })
 
-function stopAnimation(){
-    clearInterval(interval);
-    document.getElementById('start').disabled = false;
-    document.getElementById('stop').disabled = true;
-}
+    $("#stop").click(function(){
+        clearInterval(interval);
+        $("#stop").prop("disabled",true);
+        $("#start").prop("disabled",false);
+    })
 
-function sizeChange(){
-    var displayArea = document.getElementById('animarea');
-    var selectedFont = document.getElementById('size');
-    var fontSize = selectedFont.options[selectedFont.selectedIndex].value;
-    if(fontSize === 'tiny'){
-        displayArea.style.fontSize = '7pt';
+    $("#size").change(function(){
+        var fontSize = $("#size").val();
+        if(fontSize === "tiny"){
+            $("#animarea").css("fontSize","7pt");
+        }
+        if(fontSize === "small"){
+            $("#animarea").css("fontSize","10pt");
+        }
+        if(fontSize === "medium"){
+            $("#animarea").css("fontSize","12pt");
+        }
+        if(fontSize === "large"){
+            $("#animarea").css("fontSize","16pt");
+        }
+        if(fontSize === "extralarge"){
+            $("#animarea").css("fontSize","24pt");
+        }
+        if(fontSize === "xxl"){
+            $("#animarea").css("fontSize","32pt");
+        }
+    })
+
+    var animate = function animate(){
+        const animSource = ANIMATIONS[selectedAnimation].split("=====\n");
+        if(currentFrame < animSource.length){
+            $("#animarea").val(animSource[currentFrame++]);
+        }
+        if(currentFrame === animSource.length){
+            currentFrame = 0;
+        }
+        
     }
-    if(fontSize === 'small'){
-        displayArea.style.fontSize = '10pt';
-    }
-    if(fontSize === 'medium'){
-        displayArea.style.fontSize = '12pt';
-    }
-    if(fontSize === 'large'){
-        displayArea.style.fontSize = '16pt';
-    }
-    if(fontSize === 'extralarge'){
-        displayArea.style.fontSize = '24pt';
-    }
-    if(fontSize === 'xxl'){
-        displayArea.style.fontSize = '32pt';
-    }
-}
+});
+
 
