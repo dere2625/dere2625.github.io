@@ -99,7 +99,6 @@ function loadAccounts(){
     parse();
     var select = document.getElementById("accounts");
     var options = Account.accountsList;
-    console.log(Account.accountsList.length);
     for(var i = 0; i < options.length; i++) {
         var opt = options[i].getAccountType();
         var el = document.createElement("option");
