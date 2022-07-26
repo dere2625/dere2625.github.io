@@ -49,12 +49,15 @@ class Account{
 
 function createAccount(){
     const accountType = document.getElementById("accountname").value;
-    const deposit = document.getElementById("deposit").value;
-    var account = new Account(accountType, parseFloat(deposit));
+    const deposit = parseFloat(document.getElementById("deposit").value);
+    if(isNaN(deposit) || deposit <= 0){
+        alert('Please enter a valid deposit amount');
+        return;
+    }
+    var account = new Account(accountType, deposit);
     Account.accountsList.push(account);
     account.writeToStorage(Account.accountsList);
     dipslay();
-
 }
 
 function dipslay(){
@@ -62,12 +65,17 @@ function dipslay(){
     var dipslayInfo = '';
     for(let i=0; i< allAccounts.length; i++){
         dipslayInfo+= 'Account type :'+allAccounts[i].getAccountType()
-        +' Balance :'+allAccounts[i].getBalance()+'\n';
+        +', Balance :'+allAccounts[i].getBalance()+'\n';
     }
     document.getElementById("display").innerHTML = dipslayInfo;
 }
 
 function parseSavedData(){
+    parse();
+    dipslay();
+}
+
+function parse(){
     var savedItems = localStorage.getItem("accounts");
     var data = [];
     if(savedItems != null){
@@ -77,7 +85,6 @@ function parseSavedData(){
         var acc = new Account(data[i].split(',')[0],data[i].split(',')[1]);
         Account.accountsList.push(acc);
     }
-    dipslay();
 }
 
 function redirectDeposit(){
@@ -89,15 +96,7 @@ function redirectWithdraw(){
 }
 
 function loadAccounts(){
-    var savedItems = localStorage.getItem("accounts");
-    var data = [];
-    if(savedItems != null){
-        data = savedItems.split('\n');
-    }
-    for(let i=0; i<data.length -1; i++){
-        var acc = new Account(data[i].split(',')[0],data[i].split(',')[1]);
-        Account.accountsList.push(acc);
-    }
+    parse();
     var select = document.getElementById("accounts");
     var options = Account.accountsList;
     console.log(Account.accountsList.length);
