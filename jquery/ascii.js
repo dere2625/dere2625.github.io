@@ -6,7 +6,7 @@ var turboSpeed = 150;
 var selectedAnimation = "";
 var interval;
 
-$(document).ready(function(){
+jQuery(function(){
     $("#start").click(function(){
         var speed = 0;
         if($("#speed").is(":checked")){

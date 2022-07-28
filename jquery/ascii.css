@@ -19,6 +19,7 @@ textarea{
     width: 70%;
     justify-content: space-between;
     font-weight: bold;
+    height: 300px;
 }
 
 .playcontrolls fieldset{
@@ -53,5 +54,11 @@ textarea{
 
 fieldset{
     border: 5px black solid;
+}
+
+.validation{
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
 }
 
