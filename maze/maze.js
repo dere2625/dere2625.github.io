@@ -3,6 +3,8 @@ jQuery(function(){
     var started = false;
     var finished = false;
     const startingPosition = $("#start").position();
+    const dimentionWidth = $("#start").width()/2;
+    const dimentionHeight = $("#start").height()/2;
     $("#start").click(function(){
         failed = false;
         started = true;
@@ -10,16 +12,21 @@ jQuery(function(){
         resetMaze();
         showNotification("Maze started!")
 
-        $(this).parent().css("position","relative");
-        $(this).css("position","absolute");
         
         $("#maze").mousemove(function(e){
-            let maze = $(this).position(); 
-            if(failed || finished){
+            let maze = $(this).position();
+            console.log(maze.left);
+            // if(){
+            //     $(".boundary").css("backgroundColor","red");
+            //     showNotification("Sorry. You Failed! :( Press on \"S\" to Restart","error");
+            //     $("#start").offset({top: maze.top + startingPosition.top ,left: maze.left + startingPosition.left})
+            //     return;
+            // } 
+            if(failed || finished || $("#start").position().left < 0){
                 $("#start").offset({top: maze.top + startingPosition.top ,left: maze.left + startingPosition.left})
                 return;
             }
-            $("#start").offset({top: maze.top + (e.pageY-maze.top),left:maze.left+(e.pageX-maze.left)})
+            $("#start").offset({top: maze.top + (e.pageY-maze.top) - dimentionHeight,left:  maze.left+(e.pageX-maze.left) - dimentionWidth})
             
         })
        
@@ -29,7 +36,7 @@ jQuery(function(){
         if(started && !failed){
             $(this).css("backgroundColor","red");
             failed = true;
-            showNotification("Sorry. You Failed! :( Press on \"S\" to Restart")
+            showNotification("Sorry. You Failed! :( Press on \"S\" to Restart","error")
         }
         
     })
@@ -38,26 +45,39 @@ jQuery(function(){
         $(".boundary").css("backgroundColor","#eeeeee");
     }
 
-    function showNotification(notifaction){
+    function showNotification(notifaction,type){
+        if(type === "error"){
+            $("#status").css({color: "red"});
+        }
+        else if(type === "win"){
+            $("#status").css({color: "green"});
+        }
+        else{
+            $("#status").css({color: "black"});
+        }
         $("#status").html(notifaction);
     }
 
     $("#end").mouseenter(function(){
         if(!failed && started){
             finished = true;
-            showNotification("Congratulations. You Win! :)  Press on \"S\" to play again");
+            showNotification("Congratulations. You Win! :)  Press on \"S\" to play again","win");
             $("#start").offset({top: maze.top + startingPosition.top ,left: maze.left + startingPosition.left})
         }
+        else if(!started){
+            //return;
+        }
         else{
-            showNotification("Sorry. You Failed! :( Press on \"S\" to Restart")
+            showNotification("Sorry. You Failed! :( Press on \"S\" to Restart","error")
         }
         started = false;
     })
 
     $("#maze").mouseleave(function(){
         if(started){
+            
             $(".boundary").css("backgroundColor","red");
-            showNotification("Sorry. You Failed! :( Press on \"S\" to Restart")
+            showNotification("Sorry. You Failed! :( Press on \"S\" to Restart","error")
         }
         failed = true;
         started = false;
