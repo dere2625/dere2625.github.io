@@ -34,7 +34,7 @@ jQuery(function(){
 
     $(".boundary").mouseenter(function(){
         if(started && !failed){
-            $(this).css("backgroundColor","red");
+            $(".boundary").css("backgroundColor","red");
             failed = true;
             showNotification("Sorry. You Failed! :( Press on \"S\" to Restart","error")
         }
