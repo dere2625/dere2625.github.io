@@ -1,9 +1,14 @@
 const express = require('express')
 const data = require('./word')
 const single = require('./word')
+const cors = require('cors')
 var url = require('url')
 const app = express();
 const port = 8081
+
+app.use(cors({
+    origin : 'http://127.0.0.1:5500'
+}))
 
 
 app.get('/words', (req,res)=>{

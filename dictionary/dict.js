@@ -25,16 +25,18 @@ jQuery(()=>{
                 selected = $(this).children("h4").text();
                 $('.displayzone').css("display","flex");
                 $('.suggestion').css("display","none");
-                for(res of res){
-                    $('.displayzone ol').append(
-                        `<li>
-                        <div class="content">
-                            <h5>(${res.wordtype})</h5>
-                            <q>${res.definition}</q>
-                        </div>
-                        </li>`
-                    )
-                }
+                fetchOne(selected,(response)=>{
+                    for(res of response){
+                        $('.displayzone ol').append(
+                            `<li>
+                            <div class="content">
+                                <h5>(${res.wordtype == ''? 'No word type' : res.wordtype})</h5>
+                                <q>${res.definition}</q>
+                            </div>
+                            </li>`
+                        )
+                    }
+                })
             })
         })
     })
@@ -46,6 +48,16 @@ jQuery(()=>{
             dataType: 'json',
             success: function(res) {
                 showAll(res);
+            }
+    })}
+
+    function fetchOne(query,showOne){
+        $.ajax({
+            url: "http://localhost:8081/words/find?"+query,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res) {
+                showOne(res);
             }
     })}
 

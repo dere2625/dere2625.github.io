@@ -10,14 +10,14 @@ const connection = con.createConnection({
 connection.connect();
 
 function test(input,callback){
-    let query = `SELECT * FROM entries.entries where word like '${input}%' limit 10;`
+    let query = `SELECT Distinct word FROM entries.entries where word like '${input}%' limit 10;`
     connection.query(query, (err, rows, fields) => {
         if (err) throw err
         callback(rows)
     });
 }
 function findOne(input,callback){
-    let query = `SELECT * FROM entries.entries where word = '${input}%' limit 10;`
+    let query = `SELECT * FROM entries.entries where word = '${input}' limit 10;`
     connection.query(query, (err, rows, fields) => {
         if (err) throw err
         callback(rows)
