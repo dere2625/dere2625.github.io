@@ -1,0 +1,19 @@
+{
+  "name": "dere2625.github.io",
+  "version": "1.0.0",
+  "description": "A github page for WAP coursework",
+  "main": "./dictionary/dict.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dere2625/dere2625.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dere2625/dere2625.github.io/issues"
+  },
+  "homepage": "https://github.com/dere2625/dere2625.github.io#readme"
+}

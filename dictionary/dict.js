@@ -4,41 +4,57 @@ jQuery(()=>{
         $('.displayzone').css("display","none");
         let word = $("#query").val();
 
-
+        if(word == ''){
+            $('.suggestion').css("display","none");
+        }
         removeChildren();
         removeElements();
-        data.forEach((item)=>{
-            if(item.word.startsWith(word) && word != ''){
-                $(".suggestion").append(
-                    `<div class = "suggest">
-                    <h4>${item.word}</h4>
-                    <hr>
-                    </div>`
-                )
+        var elements = [];
+        $.ajax({
+            url: "http://localhost:8081/words?"+word,
+            type: 'GET',
+            dataType: 'json', // added data type
+            success: function(res) {
+                res.forEach((item)=>{
+                    elements.push(item);
+                        // console.log(item);
+                        $(".suggestion").append(
+                            `<div class = "suggest">
+                            <h4>${item.word}</h4>
+                            <hr>
+                            </div>`
+                        )
+                    
+                })
+                let selected = '';
+                $(".suggest").click(function () {
+                    removeElements();
+                    selected = $(this).children("h4").text();
+                    $('.displayzone').css("display","flex");
+                    $('.suggestion').css("display","none");
+                    
+                    let response = $.ajax({
+                        url: "http://localhost:8081/words?"+word,
+                        type: 'GET',
+                        dataType: 'json', // added data type
+                        success: function(res) {
+                            for(response of res){
+                                $('.displayzone ol').append(
+                                    `<li>
+                                    <div class="content">
+                                        <h5>(${response.wordtype})</h5>
+                                        <q>${response.definition}</q>
+                                    </div>
+                                    </li>`
+                                )
+                            }
+                        }
+                    })
+                    
+                    
+                })
             }
-        })
-
-
-        let selected = '';
-        $(".suggest").click(function () {
-            removeElements();
-            selected = $(this).children("h4").text();
-            $('.displayzone').css("display","flex");
-            $('.suggestion').css("display","none");
-            
-            let response = data.filter((data)=> data.word === selected);
-            for(res of response){
-                $('.displayzone ol').append(
-                    `<li>
-                    <div class="content">
-                        <h5>(${res.type})</h5>
-                        <q>${res.meaning}</q>
-                    </div>
-                    </li>`
-                )
-            }
-            
-        })
+        });
     })
 
     function removeChildren(){
