@@ -1,0 +1,22 @@
+[
+    {
+        "word":"abc",
+        "type":"noun",
+        "meaning":"This is the meaning of the above mentioned word which is selected"
+    },
+    {
+        "word":"acc",
+        "type":"verb",
+        "meaning":"This is the meaning of the above mentioned word which is selected"
+    },
+    {
+        "word":"adbc",
+        "type":"noun",
+        "meaning":"This is the meaning of the above mentioned word which is selected"
+    },
+    {
+        "word":"aabc",
+        "type":"verb",
+        "meaning":"This is the meaning of the above mentioned word which is selected"
+    }
+]
