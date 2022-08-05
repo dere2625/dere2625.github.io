@@ -16,7 +16,7 @@ jQuery(function(){
             div.style.left = x + 'px';
             div.style.top = y + 'px';
             // div.style.backgroundImage = 'url("background.jpeg")';
-            // div.style.backgroundPosition = -x + 'px ' + (-y) + 'px';
+            div.style.backgroundPosition = -x + 'px ' + (-y) + 'px';
         }
         
         
@@ -39,14 +39,33 @@ jQuery(function(){
                 randoms.push(flr);
             }
         }
-        return 0;
     }
 
     getRandomNumber();
 
 
     $('#shufflebutton').click(function(){
-        console.log('locations',locations);
+        var options = $('input[name="back"]')
+        var selected = options.filter(':checked').attr('id');
+        switch (selected) {
+            case 'noback':
+                $('#puzzlearea').addClass('noback');
+                $('#puzzlearea').removeClass('mario');
+                $('#puzzlearea').removeClass('monalisa');
+                break;
+            case 'mario':
+                $('#puzzlearea').removeClass('noback');
+                $('#puzzlearea').removeClass('monalisa');
+                $('#puzzlearea').addClass('mario');
+                break;
+            case 'monalisa':
+                $('#puzzlearea').removeClass('noback');
+                $('#puzzlearea').removeClass('mario');
+                $('#puzzlearea').addClass('monalisa');
+            default:
+                break;
+        }
+
         for(let j = 0; j< divs.length; j++){
             var s = divs[j];
             var index = randoms[j];
@@ -60,45 +79,61 @@ jQuery(function(){
     
 
     function findNeighbors(){
+        clearVisited();
         var empty = document.getElementById('empty');
         let top = empty.style.top;
         let left = empty.style.left;
         for(let i=0; i<divs.length; i++){
             var div = divs[i];
-            console.log(Math.abs((parseInt(div.style.top) - parseInt(parseInt(top)))));
             if(((div.style.left == left) && Math.abs((parseInt(div.style.top) - parseInt(top+100)) == 100))
             || ((div.style.left == left) && Math.abs(parseInt(top) - (parseInt(div.style.top))) == 100)
             ) {
-                div.style.border = 'red 2px solid'
-                div.style.borderRadius = '5px'
                 div.classList.add('hello')
                 
             }
             if(((div.style.top == top) && Math.abs((parseInt(div.style.left) - parseInt(left+100)) == 100))
             || ((div.style.top == top) && Math.abs(parseInt(left) - (parseInt(div.style.left))) == 100)
             ){
-                div.style.border = 'red 2px solid'
-                div.style.borderRadius = '5px'
                 div.classList.add('hello')
             }
 
         }
-        
+    }
+
+    function clearVisited(){
+        for(let j = 0; j< divs.length; j++){
+            var s = divs[j];
+            s.classList.remove('hello');
+        }
     }
 
     $('body').on('click','.hello',function(){
-        var empty = document.getElementById('empty');
-        let top = empty.style.top;
-        let left = empty.style.left;
-        let tempTop = top;
-        let tempLeft = left;
-        let elementLeft = $(this).position().left;
-        let elementTop = $(this).position().top;
-        empty.style.top = elementTop+'px';
-        empty.style.left = elementLeft+'px';
-        $(this).css({top:tempTop,left:tempLeft});
-        findNeighbors();
-        console.log($(this).position());
+        if(isWinner()){
+            alert('Congratulations. You\'ve won the game')
+            window.location.href = 'index.html'
+        }else{
+            var empty = document.getElementById('empty');
+            let top = empty.style.top;
+            let left = empty.style.left;
+            let tempTop = top;
+            let tempLeft = left;
+            let elementLeft = $(this).position().left;
+            let elementTop = $(this).position().top;
+            empty.style.top = elementTop+'px';
+            empty.style.left = elementLeft+'px';
+            $(this).css({top:tempTop,left:tempLeft});
+            findNeighbors();
+        }
     })
+
+    function isWinner(){
+        var currentLocations = [];
+        for(let i=0; i<divs.length; i++){
+            currentLocations.push({a:parseInt(divs[i].style.left), b:parseInt(divs[i].style.top)});
+        }
+        return JSON.stringify(locations) === JSON.stringify(currentLocations);
+    }
+
+    
     
 })

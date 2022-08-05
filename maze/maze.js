@@ -16,12 +16,6 @@ jQuery(function(){
         $("#maze").mousemove(function(e){
             let maze = $(this).position();
             console.log(maze.left);
-            // if(){
-            //     $(".boundary").css("backgroundColor","red");
-            //     showNotification("Sorry. You Failed! :( Press on \"S\" to Restart","error");
-            //     $("#start").offset({top: maze.top + startingPosition.top ,left: maze.left + startingPosition.left})
-            //     return;
-            // } 
             if(failed || finished || $("#start").position().left < 0){
                 $("#start").offset({top: maze.top + startingPosition.top ,left: maze.left + startingPosition.left})
                 return;
