@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js" integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APOD - Ajax</title>
+</head>
+<body>
+    <nav class="navbar" style="background-color: #e3f2fd;">
+        <div class="left">
+            <p class="display-6">Welcome to Nasa's APOD</p>
+        </div>
+        <div class="picker">
+            <div class="input-group date" id="datepicker">
+                <input id="date" type="text" class="form-control">
+                <span class="input-group-append">
+                <span class="input-group-text bg-white d-block">
+                <i class="fa fa-calendar"></i>
+                </span>
+                </span>
+            </div>
+            <button id="show" class="btn btn-info">Show</button>
+        </div>
+    </nav>
+    <div class="imagecontainer">
+        <img id="image" src="" class="img-fluid" alt="">
+    </div>
+    <div class="description">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+              <p id="title"></p>
+            </blockquote>
+            <figcaption class="blockquote-footer" id="info">
+                <!-- The Mars Ingenuity Helicopter, all four landing legs down, was captured here on sol 39 (March 30) slung beneath the belly of the Perseverance rover. The near ground level view is a mosaic of images from the WATSON camera on the rover's SHERLOC robotic arm. Near the center of the frame the experimental helicopter is suspended just a few centimeters above the martian surface. Tracks from Perseverance extend beyond the rover's wheels with the rim of Jezero crater visible about 2 kilometers in the distance. Ingenuity has a weight of 1.8 kilograms or 4 pounds on Earth. That corresponds to a weight of 0.68 kilograms or 1.5 pounds on Mars. With rotor blades spanning 1.2 meters it will attempt to make the first powered flight of an aircraft on another planet in the thin martian atmosphere, 1 percent as dense as Earth's, no earlier than April 11. -->
+            </figcaption>
+            <figcaption class="blockquote-footer">
+              Someone famous in <cite title="Source Title">NASA</cite>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+</html>
