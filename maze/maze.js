@@ -1,4 +1,4 @@
-jQuery(function(){
+    jQuery(function(){
     var failed = false;
     var started = false;
     var finished = false;
