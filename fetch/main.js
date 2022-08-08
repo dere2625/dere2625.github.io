@@ -25,19 +25,26 @@ jQuery(()=>{
             return;
         }
 
-        fetch('https://api.nasa.gov/planetary/apod',{api_key:key,date:date})
-        .then(displayData)
+        fetch('https://api.nasa.gov/planetary/apod?'+new URLSearchParams({api_key:key,date:date}))
+        .then((response) => {
+            return response.json();
+        })
+        .then(data => displayData(data))
         .catch(error =>{
             alert(error)
         })
     })
-    fetch('https://api.nasa.gov/planetary/apod',{api_key:key,date:date})
-        .then(displayData)
+    fetch('https://api.nasa.gov/planetary/apod?'+new URLSearchParams({api_key:key,date:todaysdate}))
+        .then((response) =>{
+            return response.json();
+        })
+        .then(data =>displayData(data))
         .catch(error =>{
             alert(error)
         })
 
     function displayData(data){
+        console.log(data)
         $('#info').text(data.explanation)
         $('#title').text(data.title)
         $('#image').attr('src',data.hdurl)
